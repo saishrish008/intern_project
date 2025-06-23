@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Habit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #d500f9, #ff4081);
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, select {
+      width: 95%;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      transition: border 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #b000f1;
+      outline: none;
+    }
+
+    .info {
+      margin-top: 20px;
+      color: #666;
+      font-size: 15px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      flex: 1;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .cancel {
+      background: #999;
+    }
+
+    .save {
+      background: linear-gradient(to right, #7b1fa2, #e91e63);
+    }
+
+    .delete {
+      background: #d32f2f;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #888;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-btn" href="dashboard.html">←</a>
+  <h1>Edit Habit</h1>
+
+  <div class="container">
+    <label>Emoji</label>
+    <input type="text" placeholder="e.g. 💪" value="💪" />
+
+    <label>Habit Name</label>
+    <input type="text" placeholder="e.g. Morning Exercise" value="Morning Exercise" />
+
+    <label>Frequency</label>
+    <select>
+      <option value="daily" selected>📅 Daily</option>
+      <option value="weekly">📆 Weekly</option>
+    </select>
+
+    <label>Reminder Time (Optional)</label>
+    <input type="time" value="07:00" />
+
+    <label>Start Date</label>
+    <input type="date" value="2024-05-01" />
+
+    <label>Goal (Optional)</label>
+    <input type="text" placeholder="e.g. 30 days, 10k steps" value="30 days" />
+
+    <div class="info">
+      Current streak: <strong>5 days</strong> <br/>
+      Last completed: <strong>June 22, 2025</strong>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn save">Save Changes</button>
+      <button class="btn cancel" href="dashboard.htm">Cancel</button>
+      <button class="btn delete">Delete Habit</button>
+    </div>
+
+    <div class="note">* Changes will be saved for this habit only.</div>
+  </div>
+
+</body>
+</html>

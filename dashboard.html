@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Habit Tracker</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #e1f5fe, #e3f2fd);
+    }
+
+    header {
+      background: #ffffffcc;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #01579b;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #607d8b;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #039be5, #00acc1);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .btn-view {
+      background: #b3e5fc;
+      color: #01579b;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color:  #0277bd;
+    }
+
+    .section-title {
+      font-size: 20px;
+      color: #0277bd;
+      margin-bottom: 10px;
+    }
+
+    .habits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .habit-card {
+      background: #e1f5fe;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .habit-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .habit-buttons button {
+      padding: 6px 12px;
+      font-size: 13px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background-color: #e3f2fd;
+      color: #0277bd;
+    }
+
+    .delete-btn {
+      background-color: #ffcdd2;
+      color: #c62828;
+    }
+
+    .quote {
+      text-align: center;
+      font-style: italic;
+      color: #455a64;
+      margin: 30px 0;
+    }
+
+    .footer {
+      background: #ffffffcc;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #607d8b;
+      margin-top: 40px;
+      border-top: 1px solid #ccc;
+    }
+
+    .bar-graph {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+      height: 150px;
+      margin-top: 10px;
+    }
+
+    .bar-graph div {
+      text-align: center;
+      flex: 1;
+    }
+
+    .bar {
+      width: 30px;
+      margin: auto;
+      border-radius: 5px;
+    }
+
+    #bar-progress {
+      height: 40%;
+      background: #03a9f4;
+    }
+
+    #bar-streak {
+      height: 80%;
+      background: #00bcd4;
+    }
+
+    #bar-habits {
+      height: 50%;
+      background: #0288d1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="title">Habit Tracker</div>
+    <div style="display: flex; gap: 10px;">
+      <button class="btn" onclick="window.location.href='addnewhabit.html'"><i data-feather="plus"></i> Add Habit</button>
+      <button class="btn" onclick="window.location.href='login.html'"><i data-feather="log-out"></i> Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="card" style="margin-bottom: 30px;">
+      <h3><i data-feather="user"></i> Account Info</h3>
+      <p><strong>Name:</strong> <span id="userName"></span></p>
+      <p><strong>Email:</strong> <span id="userEmail"></span></p>
+      <p><strong>DOB:</strong> <span id="userDOB"></span></p>
+      <p><strong>Gender:</strong> <span id="userGender"></span></p>
+    </div>
+
+    <div class="stats">
+      <div class="card">
+        <h3><i data-feather="target"></i> Today's Progress</h3>
+        <p>0/0</p>
+        <small>0% complete</small>
+        <button class="btn-view" onclick="window.location.href='todayprogress.html'">View</button>
+      </div>
+      <div class="card">
+        <h3><i data-feather="trending-up"></i> Total Streaks</h3>
+        <p>0</p>
+        <small>Start your first streak!</small>
+        <button class="btn-view" onclick="window.location.href='totalstreaks.html'">View</button>
+      </div>
+      <div class="card">
+        <h3><i data-feather="calendar"></i> Active Habits</h3>
+        <p>0</p>
+        <small>No habits yet</small>
+        <button class="btn-view" onclick="window.location.href='activehabits.html'">View</button>
+      </div>
+    </div>
+
+    <h2 class="section-title">Today's Habits</h2>
+    <div class="habits" id="habitList">
+      <p style="grid-column: 1/-1; text-align:center; color: #0277bd;">No habits added yet</p>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 40px;">Options</h2>
+    <div class="stats">
+      <button class="btn" onclick="comingSoon()"><i data-feather="download"></i> Export Data</button>
+      <button class="btn" onclick="comingSoon()"><i data-feather="upload"></i> Import Data</button>
+      <button class="btn" onclick="window.location.href='viewanalytics.html'"><i data-feather="bar-chart-2"></i> View Analytics</button>
+      <button class="btn" onclick="comingSoon()"><i data-feather="rotate-ccw"></i> Reset All Data</button>
+      <button class="btn" onclick="window.location.href='settings.html'"><i data-feather="settings"></i> Settings</button>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 40px;">Today Stats</h2>
+    <div class="card">
+      <div class="bar-graph">
+        <div>
+          <div class="bar" id="bar-progress"></div>
+          <small>Progress</small>
+        </div>
+        <div>
+          <div class="bar" id="bar-streak"></div>
+          <small>Streak</small>
+        </div>
+        <div>
+          <div class="bar" id="bar-habits"></div>
+          <small>Habits</small>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+
+  <script>
+    feather.replace();
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      document.getElementById("userName").innerText = user.name;
+      document.getElementById("userEmail").innerText = user.email;
+      document.getElementById("userDOB").innerText = user.dob;
+      document.getElementById("userGender").innerText = user.gender;
+    } else {
+      alert("User not logged in!");
+      window.location.href = "login.html";
+    }
+    function comingSoon(){
+      alert("Coming Soon!");
+    }
+  </script>
+</body>
+</html>

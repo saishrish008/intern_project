@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>Habit tracker login</title>
+    <style>
+        html {
+            font-family: sans-serif;
+            color: #0277bd;
+        }
+        body {
+            background-color: #e1f5fe;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .form {
+            background-color: #ffffff;
+            padding: 25px;
+            width: fit-content;
+            border: 2px solid #81d4fa;
+            border-radius: 25px;
+            box-shadow: 0 0 15px rgba(2, 119, 189, 0.3),
+                        0 0 30px rgba(1, 87, 155, 0.2);
+        }
+        .form label {
+            font-size: 18px;
+            color: #0277bd;
+        }
+        .input {
+            border-radius: 4px;
+            width: 9cm;
+            height: 35px;
+            background-color: #e3f2fd;
+            border: 2px solid #81d4fa;
+            padding: 0 10px;
+            font-size: 14px;
+        }
+        button {
+            height: 35px;
+            width: 9.7cm;
+            border-radius: 10px;
+            color: white;
+            background-color: #039be5;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0288d1;
+            transform: scale(1.05);
+        }
+        input::placeholder {
+            color: #555;
+        }
+        a {
+            color: #0277bd;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        h1 {
+            color: #01579b;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form class="form">
+            <h1>Login into your Account</h1>
+            <br>
+
+            <label>Email Address</label><br>
+            <input type="email" id="loginEmail" placeholder="Enter your Email" class="input">
+            <br><br>
+
+            <label>Password</label><br>
+            <input type="password" id="loginPassword" placeholder="Enter your password" class="input">
+            <br><br><br>
+
+            <a href="#">Forgot password?</a>
+            <br><br><br>
+
+            <button type="button" onclick="loginUser()">LOGIN</button>
+            <br><br>
+
+            <label>------------------ NEW USER ? -----------------</label>
+            <br><br>
+
+            <button type="button" onclick="window.location.href='register.html'">REGISTER NOW</button>
+        </form>
+    </div>
+
+    <script>
+    function loginUser() {
+        const enteredEmail = document.getElementById("loginEmail").value.trim();
+        const enteredPassword = document.getElementById("loginPassword").value;
+
+        const userData = JSON.parse(localStorage.getItem("user"));
+
+        if (!userData) {
+            alert("No user found. Please register first.");
+            return;
+        }
+
+        if (enteredEmail === userData.email && enteredPassword === userData.password) {
+            alert("Login successful!");
+            localStorage.setItem("loggedIn", "true");
+            window.location.href = "dashboard.html";
+        } else {
+            alert("Invalid email or password!");
+        }
+    }
+    </script>
+</body>
+</html>

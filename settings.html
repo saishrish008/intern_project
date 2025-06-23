@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Settings</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #e1f5fe, #b3e5fc);
+      color: #01579b;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0277bd;
+    }
+
+    .setting-row {
+      margin: 20px;
+    }
+
+    .toggle-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .toggle-label input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      appearance: none;
+      background-color: #ccc;
+      border-radius: 20px;
+      position: relative;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .toggle-label input[type="checkbox"]::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: 0.3s;
+    }
+
+    .toggle-label input[type="checkbox"]:checked {
+      background-color: #039be5;
+    }
+
+    .toggle-label input[type="checkbox"]:checked::before {
+      transform: translateX(20px);
+    }
+
+    .action-btn {
+      display: block;
+      width: 95%;
+      margin: 15px 0;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(to right, #0288d1, #4fc3f7);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .action-btn:hover {
+      opacity: 0.9;
+    }
+
+    .logout-btn {
+      background: #ef5350;
+      width: 99.5%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Settings</h1>
+
+    <!-- Appearance Toggle -->
+    <div class="setting-row">
+      <label class="toggle-label">
+        Appearance (Dark/Light Mode)
+        <input type="checkbox" id="modeToggle" onclick="toggleMode()" />
+      </label>
+    </div>
+
+    <!-- GitHub Button -->
+    <a href="https://github.com/YOUR-REPO-LINK" target="_blank" class="action-btn">
+      🌐 GitHub Repository
+    </a>
+
+    <!-- Feedback Button -->
+    <a href="mailto:youremail@example.com?subject=Habit Tracker Feedback" class="action-btn">
+      ✉️ Send Feedback
+    </a>
+
+    <!-- Logout -->
+    <button class="action-btn logout-btn" onclick="window.location.href='index.html'">
+      🔓 Logout
+    </button>
+  </div>
+
+  <script>
+    function toggleMode() {
+      alert("Appearance toggle clicked (dark/light mode script can be added later).");
+    }
+  </script>
+</body>
+</html>

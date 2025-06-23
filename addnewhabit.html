@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add New Habit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #e1f5fe, #e3f2fd);
+      padding: 30px;
+    }
+
+    .back-btn {
+      color: #0277bd;
+      font-size: 24px;
+      text-decoration: none;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #01579b;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #0277bd;
+    }
+
+    label span {
+      font-size: 22px;
+      margin-right: 8px;
+    }
+
+    input, select, button {
+      width: 95%;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 2px solid #90caf9;
+      transition: border 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #0288d1;
+      outline: none;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .btn-group button {
+      flex: 1;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+
+    .cancel {
+      background: #90a4ae;
+    }
+
+    .save {
+      background: linear-gradient(to right, #039be5, #00acc1);
+    }
+  </style>
+</head>
+<body>
+  <a href="dashboard.html" class="back-btn">←</a>
+  <h1>Add New Habit</h1>
+  <div class="container">
+    <!-- Emoji Picker -->
+    <label><span>🎯</span>Add an Emoji</label>
+    <input type="text" placeholder="e.g. 💪, 🧘, 📖" />
+
+    <!-- Habit Name -->
+    <label><span>📝</span>Habit Name</label>
+    <input type="text" placeholder="e.g., Drink Water, Read Book" />
+
+    <!-- Frequency -->
+    <label><span>🔄</span>Frequency</label>
+    <select>
+      <option value="">Select Frequency</option>
+      <option value="daily">📅 Daily</option>
+      <option value="weekly">📆 Weekly</option>
+    </select>
+
+    <!-- Reminder Time -->
+    <label><span>⏰</span>Reminder Time (Optional)</label>
+    <input type="time" />
+
+    <!-- Start Date -->
+    <label><span>📅</span>Start Date</label>
+    <input type="date" />
+
+    <!-- Goal -->
+    <label><span>🎯</span>Goal (Optional)</label>
+    <input type="text" placeholder="e.g. 30 days, 10k steps" />
+
+    <!-- Buttons -->
+    <div class="btn-group">
+      <button class="cancel" onclick="window.location.href='dashboard.html'">Cancel</button>
+      <button class="save" onclick="comingsoon()">Save Habit</button>
+    </div>
+  </div>
+  <script>
+    function comingsoon(){
+      alert("Coming Soon!");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Total Streaks</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #e1f5fe, #b3e5fc);
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #0277bd;
+      font-size: 32px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      color: #01579b;
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 200px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .card .value {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #0288d1;
+    }
+
+    .card .label {
+      color: #555;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #e1f5fe;
+      font-weight: bold;
+      color: #01579b;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 20px;
+      background-color: #e3f2fd;
+      color: #0277bd;
+      font-size: 12px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .actions button {
+      padding: 12px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .back {
+      background-color: white;
+      color: #01579b;
+      border: 2px solid #81d4fa;
+    }
+
+    .add {
+      background: linear-gradient(to right, #0288d1, #29b6f6);
+      color: white;
+    }
+
+    .highlight {
+      text-align: center;
+      font-size: 16px;
+      background: #e1f5fe;
+      padding: 20px;
+      border-radius: 10px;
+      color: #0277bd;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1><button class="back-btn" onclick="window.location.href='dashboard.html'">&#8592;</button>🔥 Total Streaks</h1>
+
+  <div class="container">
+    <!-- Summary Cards -->
+    <div class="cards">
+      <div class="card">
+        <div class="value">0</div>
+        <div class="label">Total Streak Days</div>
+      </div>
+      <div class="card">
+        <div class="value">0</div>
+        <div class="label">Longest Streak</div>
+      </div>
+      <div class="card">
+        <div class="value">0</div>
+        <div class="label">Current Streak</div>
+      </div>
+      <div class="card">
+        <div class="value">–</div>
+        <div class="label">Most Consistent</div>
+      </div>
+    </div>
+
+    <!-- Habit-wise Table -->
+    <table>
+      <tr>
+        <th>Habit</th>
+        <th>Start Date</th>
+        <th>Current Streak</th>
+        <th>Longest Streak</th>
+        <th>Last Completed</th>
+      </tr>
+      <tr>
+        <td>–</td>
+        <td>–</td>
+        <td><span class="badge">–</span></td>
+        <td><span class="badge">–</span></td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td>–</td>
+        <td>–</td>
+        <td><span class="badge">–</span></td>
+        <td><span class="badge">–</span></td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td>–</td>
+        <td>–</td>
+        <td><span class="badge">–</span></td>
+        <td><span class="badge">–</span></td>
+        <td>–</td>
+      </tr>
+    </table>
+
+    <!-- Motivation -->
+    <div class="highlight">
+      🎯 Let's start building your first streak!
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button class="back" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+      <button class="add" onclick="window.location.href='addnewhabit.html'">Add New Habit</button>
+    </div>
+  </div>
+
+</body>
+</html>
